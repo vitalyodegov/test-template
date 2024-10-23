@@ -24,3 +24,37 @@ npx -y @diplodoc/cli -i ./ -o ./_site
 DOCKER_BUILDKIT=1 docker build --platform linux/amd64 -t MYCOMPANY/docs .
 docker push MYCOMPANY/docs:latest
 ```
+
+### GitHub Docker build Action
+
+Add the following secrets into the secret storage
+
+```
+DOCKERHUB_USERNAME
+DOCKERHUB_TOKEN
+```
+
+Add the following steps into `.github/workflows/build.yml`
+
+```yaml
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: MYCOMPANY/docs:latest
+```
+
