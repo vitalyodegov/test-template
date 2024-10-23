@@ -1,13 +1,13 @@
 # Diplodoc Static Template
 
-### Confgure GitHub secrets
+### Confgure GitHub Pages
 
 Enable GitHub pages (Settings -> Pages -> Build and deployment (Source) -> GitHub Action), then your github action will start working
 
-### Prepare develop your environment
+### Local run
 
 ```sh
-rm -rf ./build/*
+rm -rf ./build
 npx -y @diplodoc/cli -i ./ -o ./build
 npx -y http-server ./build --port=5000 --host=0.0.0.0 --cors
 ```
