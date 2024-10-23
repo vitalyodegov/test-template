@@ -2,7 +2,7 @@
 
 ### Confgure GitHub secrets
 
-Enable GitHub pages, then your github action will start working
+Enable GitHub pages (Settings -> Pages -> Build and deployment (Source) -> GitHub Action), then your github action will start working
 
 ### Prepare develop your environment
 
