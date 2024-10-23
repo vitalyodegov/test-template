@@ -19,7 +19,7 @@ After that, just open http://localhost:5000
 If you need to build docker, just run the code
 
 ```sh
-rm -rf ./build/*
+rm -rf ./build ./_site
 npx -y @diplodoc/cli -i ./ -o ./_site
 DOCKER_BUILDKIT=1 docker build --platform linux/amd64 -t MYCOMPANY/docs .
 docker push MYCOMPANY/docs:latest
